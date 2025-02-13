@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>실시간 명함 미리보기</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- tailwind 적용 잘 됐음 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
-<body>
-    <div  class="bg-cyan-950">
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-7xl flex justify-between items-stretch p-8 border border-white rounded-lg">
+        <!-- 왼쪽 입력 폼 -->
+        <div class="w-1/2 space-y-6 pr-5 border-r-4 border-dashed">
+            <label class="block">
+                <span class="text-lg font-semibold">Theme</span>
+                <select id="theme" class="w-full p-3 border rounded bg-gray-800 text-white">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                </select>
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">Name</span>
+                <input id="name" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="Your Name">
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">Job</span>
+                <input id="job" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="Job Title">
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">Company</span>
+                <input id="company" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="Company Name">
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">Address</span>
+                <input id="address" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="Address">
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">Email</span>
+                <input id="email" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="@example.com">
+            </label>
+
+            <label class="block">
+                <span class="text-lg font-semibold">About Me</span>
+                <input id="about" type="text" class="w-full p-3 border rounded bg-gray-800 text-white" placeholder="Short Bio">
+            </label>
+        </div>
+
+        <!-- 오른쪽 명함 미리보기 -->
+        <div class="w-1/2 space-y-6 flex flex-col items-center justify-center">
+            <div id="card" class="w-[400px] h-[220px] p-5 rounded-lg shadow-lg bg-gray-800 text-white self-center">
+                <div class="flex justify-between">
+                    <h2 id="previewName" class="text-2xl font-bold mb-1">Your Name</h2>
+                    <p id="previewEmail" class="text-xs mt-3">@example.com</p>
+                </div>
+                <p id="previewJob" class="text-sm mb-2">Job Title</p>
+                <p id="previewCompany" class="text-sm">Company Name</p>
+                <p id="previewAddress" class="text-xs text-gray-400 mb-2">Address</p>
+                <div class="mt-3">
+                    <h3 class="text-xs font-semibold">About Me</h3>
+                    <p id="previewAbout" class="text-xs text-gray-300">Short Bio</p>
+                </div>
+            </div>
+            <button id="saveBtn" class="w-2/3 p-4 bg-blue-500 text-white font-semibold rounded-lg">저장하기</button>
+        </div>
     </div>
-    <div cl></div>
+
+    <script src="businessCard.js"></script>
 </body>
 </html>
